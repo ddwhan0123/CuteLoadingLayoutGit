@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自定义标签-->
+    <declare-styleable name="CuteLoadingView">
+        <attr name="image_AnimType" format="string"/>
+        <attr name="image_width" format="dimension"/>
+        <attr name="image_height" format="dimension"/>
+        <attr name="image_text" format="string"/>
+    </declare-styleable>
+
+
+</resources>
