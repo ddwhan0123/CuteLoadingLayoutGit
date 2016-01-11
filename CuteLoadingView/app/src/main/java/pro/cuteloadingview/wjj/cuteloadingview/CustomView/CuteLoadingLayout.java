@@ -71,7 +71,7 @@ public class CuteLoadingLayout extends LinearLayout {
             typedArray.recycle();
         }
         if (text == null || text.length() < 1) {
-            text = "加载中..";
+            text = "加载中 ..";
         }
 
         LogUtils.d("--->CuteLoadingLayout initValue image_width : " + image_width + " image_height : " + image_height + " Image_AnimType : " + Image_AnimType);
