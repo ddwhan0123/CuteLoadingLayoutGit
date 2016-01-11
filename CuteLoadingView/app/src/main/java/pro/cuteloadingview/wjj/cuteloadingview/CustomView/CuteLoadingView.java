@@ -31,6 +31,8 @@ public class CuteLoadingView extends ImageView {
     private AnimatorSet animationSet;
     private ObjectAnimator objectAnimator1;
     private Resources resources;
+    //计算坐标用
+    private float a, b, c;
 
     private int[] defaultColor;
 
@@ -46,46 +48,46 @@ public class CuteLoadingView extends ImageView {
 
     }
 
-    public CuteLoadingView(Context context, AttributeSet attrs,String Image_AnimType) {
+    public CuteLoadingView(Context context, AttributeSet attrs, String Image_AnimType) {
         super(context, attrs);
         this.context = context;
-        this.Image_AnimType=Image_AnimType;
+        this.Image_AnimType = Image_AnimType;
         initValue(context, attrs, Image_AnimType);
     }
 
-    public CuteLoadingView(Context context, AttributeSet attrs, int defStyleAttr,String Image_AnimType) {
+    public CuteLoadingView(Context context, AttributeSet attrs, int defStyleAttr, String Image_AnimType) {
         super(context, attrs, defStyleAttr);
         this.context = context;
-        this.Image_AnimType=Image_AnimType;
+        this.Image_AnimType = Image_AnimType;
         initValue(context, attrs, Image_AnimType);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public CuteLoadingView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes,String Image_AnimType) {
+    public CuteLoadingView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes, String Image_AnimType) {
         super(context, attrs, defStyleAttr, defStyleRes);
         this.context = context;
-        this.Image_AnimType=Image_AnimType;
+        this.Image_AnimType = Image_AnimType;
         initValue(context, attrs, Image_AnimType);
     }
 
-    private void initValue(Context context, AttributeSet attrs,String Image_AnimType) {
+    private void initValue(Context context, AttributeSet attrs, String Image_AnimType) {
         resources = getResources();
         //初始化颜色数组
         defaultColor = new int[6];
         makeColorData();
 
-            //如果输入内容不合法,默认为旋转Y
-            if (Image_AnimType != null) {
-                if (!Image_AnimType.equals(AnimType.rotationY) &&
-                        (!Image_AnimType.equals(AnimType.rotationX))) {
-                    LogUtils.d("--->initValue Image_AnimType 输入不合法");
-                    this.Image_AnimType = AnimType.rotationY;
-                }
-                //如果没传参数默认为 Y旋转
-            } else {
-                LogUtils.d("--->initValue Image_AnimType 为空");
+        //如果输入内容不合法,默认为旋转Y
+        if (Image_AnimType != null) {
+            if (!Image_AnimType.equals(AnimType.rotationY) &&
+                    (!Image_AnimType.equals(AnimType.rotationX))) {
+                LogUtils.d("--->initValue Image_AnimType 输入不合法");
                 this.Image_AnimType = AnimType.rotationY;
             }
+            //如果没传参数默认为 Y旋转
+        } else {
+            LogUtils.d("--->initValue Image_AnimType 为空");
+            this.Image_AnimType = AnimType.rotationY;
+        }
     }
 
     @Override
@@ -118,9 +120,9 @@ public class CuteLoadingView extends ImageView {
         YCenter = YDraw / 2;
         mLength = XDraw / 2;
         double radian30 = 30 * Math.PI / 180;
-        float a = (float) (mLength * Math.sin(radian30));
-        float b = (float) (mLength * Math.cos(radian30));
-        float c = (YDraw - (2 * b)) / 2;
+        a = (float) (mLength * Math.sin(radian30));
+        b = (float) (mLength * Math.cos(radian30));
+        c = (YDraw - (2 * b)) / 2;
         initPaint();
 
 //        Path path = new Path();
