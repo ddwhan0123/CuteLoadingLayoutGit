@@ -7,5 +7,12 @@
 <br>
 <br>
 比较轻量级的自定义Loading界面，圆形的长条状的看腻了，不妨换一种体验
+<br>
+<br>
+如何使用？<br>
+```java
+ public void setDefaultColor()//设置颜色
+ public void setTextSize//设置字体大小
+```
 
 
